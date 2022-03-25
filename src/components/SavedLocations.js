@@ -2,6 +2,7 @@ import styled from "styled-components";
 import SavedLocationWeatherItem from "./SavedLocationWeatherItem";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import SearchLocationInput from "./SearchLocationInput";
 
 const SavedLocationsStyle = styled.div`
   border: solid 0.5px black;
@@ -38,7 +39,9 @@ const Header = () => {
         <SavedLocationWeatherItem />
       </div>
       <div className="search">
-        <form onSubmit={getWeatherHandler}>
+        <SearchLocationInput />
+
+        {/* <form onSubmit={getWeatherHandler}>
           <input
             className="input-area"
             type="text"
@@ -51,7 +54,7 @@ const Header = () => {
           <button type="submit">
             <BsSearch />
           </button>
-        </form>
+        </form> */}
       </div>
     </SavedLocationsStyle>
   );

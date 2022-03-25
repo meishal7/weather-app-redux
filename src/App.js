@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 // import { getLatLong } from "./store/store";
 import { getLatLong } from "./modules/getLatLong";
 import { getWeather } from "./modules/getWeather";
+import initMap from "../src/modules/getWeatherGoogleMaps";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getWeather);
+    ///dispatch(getWeather);
   }, []);
 
   return (

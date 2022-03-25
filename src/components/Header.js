@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const HeaderStyle = styled.div`
@@ -17,6 +18,13 @@ const HeaderStyle = styled.div`
 `;
 
 const Header = () => {
+  // const { weatherData } = useSelector((state) => state);
+  // const { weatherData } = useSelector((state) => state);
+  // console.log(weatherData);
+
+  // const { weatherData } = useSelector((s) => s);
+  // console.log(weatherData);
+
   return (
     <HeaderStyle>
       <h3 className="header">Oceanside</h3>

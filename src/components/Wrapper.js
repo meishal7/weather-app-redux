@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import HourWeather from "./HourWeather";
 import SavedLocations from "./SavedLocations";
+import SearchLocationInput from "./SearchLocationInput";
 import WeatherConditionsItem from "./WeatherConditionsItem";
 import WeekWeather from "./WeekWeather";
 
