@@ -17,44 +17,19 @@ const WeekWeatherItem = () => {
   return (
     <WeekWeatherItemStyle>
       <p>Monday</p>
-      <WiDayCloudy
-        color="red"
-        backgroundColor="pink"
-        size="2em"
-        background="#3B5998"
-      />
-      <WiThermometerExterior
-        color="red"
-        backgroundColor="pink"
-        size="2em"
-        background="#3B5998"
-      />
+      <WiDayCloudy color="red" size="2em" />
+      <WiThermometerExterior color="red" size="2em" />
       <p>
         66<span>&#8457;</span>
       </p>
-      <WiThermometer
-        color="red"
-        backgroundColor="pink"
-        size="2em"
-        background="#3B5998"
-      />
+      <WiThermometer color="red" size="2em" />
       <p>
         78<span>&#8457;</span>
       </p>
-      <BsDroplet
-        color="red"
-        backgroundColor="pink"
-        size="2em"
-        background="#3B5998"
-      />
+      <BsDroplet color="red" size="2em" />
       <p>
         45
-        <BsPercent
-          color="red"
-          backgroundColor="pink"
-          size="2em"
-          background="#3B5998"
-        ></BsPercent>
+        <BsPercent color="red" size="2em"></BsPercent>
       </p>
     </WeekWeatherItemStyle>
   );

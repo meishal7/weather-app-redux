@@ -11,7 +11,7 @@ const HourWeather = ({ hourWeatherArr = [1, 2, 3, 4, 4, 4, 4, 4, 4, 4] }) => {
   return (
     <HourWeatherStyle>
       {hourWeatherArr.map((item) => (
-        <HourWeatherItem />
+        <HourWeatherItem key={Math.random()} />
       ))}
     </HourWeatherStyle>
   );

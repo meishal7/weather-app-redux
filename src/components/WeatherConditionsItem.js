@@ -14,12 +14,7 @@ const WeatherConditionsItem = () => {
   return (
     <WeatherConditionsItemStyle>
       <div className="condition-img">
-        <BsDroplet
-          color="red"
-          backgroundColor="pink"
-          size="2em"
-          background="#3B5998"
-        />
+        <BsDroplet color="red" size="2em" />
       </div>
       <div className="condition-info">
         Humidity 51

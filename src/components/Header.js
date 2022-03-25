@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { WiFahrenheit } from "react-icons/wi";
 
 const HeaderStyle = styled.div`
   border: solid 0.5px black;

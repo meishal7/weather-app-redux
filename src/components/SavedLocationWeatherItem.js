@@ -29,12 +29,7 @@ const SavedLocationWeatherItem = () => {
         </p>
       </div>
       <div className="icon">
-        <WiDayCloudy
-          color="red"
-          backgroundColor="pink"
-          size="2em"
-          background="#3B5998"
-        />
+        <WiDayCloudy color="red" size="2em" />
       </div>
     </SavedLocationWeatherStyle>
   );

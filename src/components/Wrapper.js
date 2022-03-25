@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Header from "./Header";
 import HourWeather from "./HourWeather";
-import SavedLocationWeatherItem from "./SavedLocationWeatherItem";
+import SavedLocations from "./SavedLocations";
 import WeatherConditionsItem from "./WeatherConditionsItem";
 import WeekWeather from "./WeekWeather";
 
@@ -39,9 +39,7 @@ const Wrapper = () => {
         </div>
       </div>
       <div className="saved-locations">
-        <SavedLocationWeatherItem />
-        <SavedLocationWeatherItem />
-        <SavedLocationWeatherItem />
+        <SavedLocations />
       </div>
     </WrapperStyle>
   );

@@ -9,12 +9,7 @@ const HourWeatherItem = () => {
   return (
     <HourWeatherItemStyle>
       <p>8AM</p>
-      <WiDayCloudy
-        color="red"
-        backgroundColor="pink"
-        size="2em"
-        background="#3B5998"
-      />
+      <WiDayCloudy color="red" size="2em" />
       <p>
         66<span>&#8457;</span>
       </p>

@@ -9,7 +9,7 @@ const WeekWeather = ({ weekWeatherArr = [1, 2, 3, 4, 4, 4, 4, 4, 4, 4] }) => {
   return (
     <WeekWeatherStyle>
       {weekWeatherArr.map((item) => (
-        <WeekWeatherItem />
+        <WeekWeatherItem key={Math.random()} />
       ))}
     </WeekWeatherStyle>
   );
