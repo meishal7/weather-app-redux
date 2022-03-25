@@ -1,21 +1,17 @@
 import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-// import { getLatLong } from "../modules/getLatLong";
 
 const initialState = {
-  currentLocCoordinates: [],
   weatherData: {},
   savedLocations: [],
 };
 
 const reducer = (state = initialState, action) => {
-  if (action.type === "getCoordinates") {
-    //console.log(action.payload);
-    const crd = action.payload.coordinates;
+  if (action.type === "getWeather") {
+    const weatherData = action.payload.data;
     return {
-      currentLocCoordinates: crd,
-      weatherData: {},
+      weatherData: weatherData,
       savedLocations: [],
     };
   }

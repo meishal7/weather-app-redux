@@ -2,15 +2,16 @@ import { Fragment, useEffect } from "react";
 import Wrapper from "./components/Wrapper";
 import { GlobalStyle } from "./style/globalStyles";
 import "./style/normalize.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { getLatLong } from "./store/store";
 import { getLatLong } from "./modules/getLatLong";
+import { getWeather } from "./modules/getWeather";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getLatLong);
+    dispatch(getWeather);
   }, []);
 
   return (
