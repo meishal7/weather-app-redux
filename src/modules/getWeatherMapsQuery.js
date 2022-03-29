@@ -1,9 +1,4 @@
-/* This function fetches weather data with lattitude and longtitude recived 
-    from API, that locates user location using user IP address or using default location
-    lat and long in case if user was not located successfully. This function runs once every time 
-    the app is loaded. 
-*/
-export async function getWeather(dispatch, getState) {
+export async function getWeatherMapsQuery(dispatch, getState) {
   const apiKey = process.env.REACT_APP_API_KEY;
 
   let coordinates = [];
