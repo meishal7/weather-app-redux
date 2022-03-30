@@ -10,14 +10,15 @@ const WeatherConditionsItemStyle = styled.div`
   /* margin: 0 auto; */
 `;
 
-const WeatherConditionsItem = () => {
+const WeatherConditionsItem = ({header, description}) => {
   return (
     <WeatherConditionsItemStyle>
       <div className="condition-img">
         <BsDroplet color="red" size="2em" />
       </div>
       <div className="condition-info">
-        Humidity 51
+        <p>{header}</p>
+        <p>{description}</p>
         <BsPercent />
       </div>
     </WeatherConditionsItemStyle>

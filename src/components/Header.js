@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { useState } from "react";
 
 const HeaderStyle = styled.div`
   border: solid 0.5px black;
@@ -18,26 +19,35 @@ const HeaderStyle = styled.div`
 `;
 
 const Header = () => {
-  // const { weatherData } = useSelector((state) => state);
-  // const { weatherData } = useSelector((state) => state);
-  // console.log(weatherData);
+  const { weatherData } = useSelector((state) => state);
 
-  // const { weatherData } = useSelector((s) => s);
-  // console.log(weatherData);
+  console.log(weatherData);
+  if (!weatherData.timezone) return null;
+  //Extract city name separately here because it's long code
+  let city = weatherData?.timezone.substring(
+    weatherData.timezone.indexOf("/") + 1,
+    weatherData.timezone.length
+  );
+  if (city.includes("_")) {
+    city = city.replace("_", " ");
+  }
 
   return (
     <HeaderStyle>
-      <h3 className="header">Oceanside</h3>
+      <h3 className="header">{city}</h3>
       <p className="curr-temp">
-        Current Temp 77<span>&#8457;</span>
+        {weatherData.current.temp}
+        <span>&#8457;</span>
       </p>
       <div className="conditions">
-        <p>Clear</p>
+        <p>{weatherData.current.weather[0].main}</p>
         <p>
-          Min 56<span>&#8457;</span>
+          Min {weatherData.daily[0].temp.min}
+          <span>&#8457;</span>
         </p>
         <p>
-          Max 89<span>&#8457;</span>
+          Max {weatherData.daily[0].temp.max}
+          <span>&#8457;</span>
         </p>
       </div>
     </HeaderStyle>

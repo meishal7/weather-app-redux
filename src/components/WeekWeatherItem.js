@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { format } from "date-fns";
 import {
   WiDayCloudy,
   WiThermometerExterior,
@@ -13,22 +15,26 @@ const WeekWeatherItemStyle = styled.div`
   flex-direction: row;
 `;
 
-const WeekWeatherItem = () => {
+const WeekWeatherItem = ({ day, max, min, humidity }) => {
+  
+
   return (
     <WeekWeatherItemStyle>
-      <p>Monday</p>
+      <p>{day}</p>
       <WiDayCloudy color="red" size="2em" />
       <WiThermometerExterior color="red" size="2em" />
       <p>
-        66<span>&#8457;</span>
+        {min}
+        <span>&#8457;</span>
       </p>
       <WiThermometer color="red" size="2em" />
       <p>
-        78<span>&#8457;</span>
+        {max}
+        <span>&#8457;</span>
       </p>
       <BsDroplet color="red" size="2em" />
       <p>
-        45
+        {humidity}
         <BsPercent color="red" size="2em"></BsPercent>
       </p>
     </WeekWeatherItemStyle>

@@ -5,7 +5,7 @@ const WeatherConditionStyle = styled.div`
   border: solid 0.5px black;
 `;
 
-const WeatherConditionItem = () => {
+const WeatherConditionItem = ({header, value}) => {
   return (
     <WeatherConditionStyle>
       <h3 className="header">Oceanside</h3>

@@ -6,12 +6,11 @@ let autoComplete;
 let crd = [];
 
 // Loading google places script and inserting it into header tag
-const loadScript = (url, callback) => {
+function loadScript(url, callback) {
   let script = document.createElement("script");
   script.type = "text/javascript";
 
   if (script.readyState) {
-    // console.log("ready");
     script.onreadystatechange = function () {
       if (script.readyState === "loaded" || script.readyState === "complete") {
         script.onreadystatechange = null;
@@ -19,8 +18,6 @@ const loadScript = (url, callback) => {
       }
     };
   } else {
-    // console.log("not ready");
-
     script.onload = () => {
       crd = callback();
     };
@@ -29,10 +26,9 @@ const loadScript = (url, callback) => {
   script.src = url;
   document.getElementsByTagName("head")[0].appendChild(script);
   return crd;
-};
+}
 
 function handleScriptLoad(updateQuery, autoCompleteRef, setState) {
-  // console.log(setState);
   const options = {
     fields: ["geometry", "icon", "name", "place_id"],
     strictBounds: false,
@@ -41,16 +37,11 @@ function handleScriptLoad(updateQuery, autoCompleteRef, setState) {
   autoComplete = new window.google.maps.places.Autocomplete(
     autoCompleteRef.current,
     options
-    // { types: ["(cities)"], componentRestrictions: { country: "us" } }
-
-    // { types: ["(cities)"] }
   );
   autoComplete.setFields(["address_components", "formatted_address"]);
   autoComplete.addListener("place_changed", () =>
     handlePlaceSelect(updateQuery, setState)
   );
-  // const place = autoComplete.getPlace();
-  // console.log(place);
 }
 async function handlePlaceSelect(updateQuery, setState) {
   const addressObject = autoComplete.getPlace();
@@ -58,7 +49,6 @@ async function handlePlaceSelect(updateQuery, setState) {
   updateQuery(query);
   let lat = addressObject.geometry.location.lat();
   let lng = addressObject.geometry.location.lng();
-  // console.log(setState);
   setState([lat, lng]);
 }
 
@@ -99,10 +89,6 @@ function SearchLocationInput() {
   const submitLocationQueryHandler = (e) => {
     e.preventDefault();
     dispatch(getWeather);
-    // loadScript(
-    //   `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places`,
-    //   () => handleScriptLoad(setQuery, autoCompleteRef)
-    // );
   };
 
   return (
