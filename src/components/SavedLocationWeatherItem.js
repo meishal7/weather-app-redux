@@ -9,6 +9,7 @@ import {
 const SavedLocationWeatherStyle = styled.div`
   border: solid 0.5px black;
   display: flex;
+  max-width: inherit;
   .loc-name-btn {
     border: solid 0.5px black;
     min-height: 50px;

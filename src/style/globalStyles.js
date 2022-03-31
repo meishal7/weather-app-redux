@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   --shadow: 6px 8px 15px -6px rgba(0,0,0,0.36);
 
 
+
 }
 html {
 box-sizing: border-box;

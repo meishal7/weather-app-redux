@@ -10,7 +10,7 @@ const WeatherConditionsItemStyle = styled.div`
   /* margin: 0 auto; */
 `;
 
-const WeatherConditionsItem = ({header, description}) => {
+const WeatherConditionsItem = ({ header, description }) => {
   return (
     <WeatherConditionsItemStyle>
       <div className="condition-img">

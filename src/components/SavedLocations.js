@@ -6,7 +6,9 @@ import SearchLocationInput from "./SearchLocationInput";
 
 const SavedLocationsStyle = styled.div`
   border: solid 0.5px black;
-  .input-area {
+  max-width: inherit;
+  overflow-x: auto;
+  /* .input-area {
     margin-top: 10px;
     background: #fbf7ff;
     width: 300px;
@@ -17,7 +19,7 @@ const SavedLocationsStyle = styled.div`
   }
   .input-area:focus {
     border: 2px solid #b5afaf;
-  }
+  } */
 `;
 
 const Header = () => {

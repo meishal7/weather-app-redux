@@ -27,7 +27,12 @@ function App() {
   const { weatherData } = useSelector((state) => state);
   if (!weatherData) setLoading(true);
   // {!loading && <Wrapper />}
-  return <Wrapper />;
+  return (
+    <Fragment>
+      <GlobalStyle />
+      <Wrapper />
+    </Fragment>
+  );
 }
 
 export default App;
