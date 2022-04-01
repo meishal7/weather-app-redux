@@ -1,25 +1,49 @@
 import styled from "styled-components";
-import { BsDroplet, BsPercent } from "react-icons/bs";
 
 const WeatherConditionsItemStyle = styled.div`
-  border: solid 0.5px black;
   display: flex;
   flex-direction: row;
-  width: 50%;
-  /* min-width: 300px; */
-  /* margin: 0 auto; */
+  justify-content: space-between;
+
+  background: var(--card-gradient);
+  border-radius: 6px;
+  padding: 20px;
+
+  box-shadow: var(--box-shadow);
+  .icon {
+    width: 70px;
+    max-height: 50px;
+    object-fit: contain;
+    
+  }
+  p {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 21px;
+    text-align: right;
+    padding-top: 10px;
+
+    color: rgba(0, 0, 0, 0.45);
+  }
+  .condition-info {
+    flex: 1;
+  }
+  .condition-info p + p {
+    font-size: 20px;
+  }
 `;
 
-const WeatherConditionsItem = ({ header, description }) => {
+const WeatherConditionsItem = ({ header, description, imgName }) => {
   return (
     <WeatherConditionsItemStyle>
       <div className="condition-img">
-        <BsDroplet color="red" size="2em" />
+        <img className="icon" src={imgName} />
       </div>
       <div className="condition-info">
         <p>{header}</p>
         <p>{description}</p>
-        <BsPercent />
       </div>
     </WeatherConditionsItemStyle>
   );

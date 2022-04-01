@@ -1,6 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
+
+const SearchLocationInputStyle = styled.div`
+  display: flex;
+  flex-direction: row;
+  .search-btn {
+    margin-left: 10px;
+  }
+
+  .pac-target-input {
+    animation-name: endBrowserAutofill;
+    border: black 1 px solid;
+    border-radius: 4px;
+
+    color: black;
+    font-family: "Rubik", sans-serif;
+    width: 180px;
+    //margin-left: 30px;
+    margin-bottom: 2rem;
+
+    padding: 0.5rem;
+  }
+`;
 
 let autoComplete;
 let crd = [];
@@ -89,10 +112,11 @@ function SearchLocationInput() {
   const submitLocationQueryHandler = (e) => {
     e.preventDefault();
     dispatch(getWeather);
+    setQuery(" ");
   };
 
   return (
-    <div className="search-location-input">
+    <SearchLocationInputStyle>
       <form onSubmit={submitLocationQueryHandler}>
         <input
           ref={autoCompleteRef}
@@ -100,11 +124,11 @@ function SearchLocationInput() {
           placeholder="Enter a City"
           value={query}
         />
-        <button type="submit">
-          <BsSearch />
+        <button className="search-btn" type="submit">
+          <BsSearch size="1.5em" />
         </button>
       </form>
-    </div>
+    </SearchLocationInputStyle>
   );
 }
 

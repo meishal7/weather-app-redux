@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { format } from "date-fns";
 
 const HourWeatherStyle = styled.div`
-  border: solid 0.5px black;
   display: flex;
   max-width: 1000px;
   overflow: scroll;
@@ -22,6 +21,14 @@ const HourWeatherStyle = styled.div`
   margin: 0;
   margin-bottom: -15px; */
   scrollbar-width: none;
+  padding-bottom: 15px;
+  padding-top: 15px;
+
+  background: var(--card-gradient);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 1.5rem;
+  box-shadow: var(--box-shadow);
 `;
 
 const HourWeather = () => {

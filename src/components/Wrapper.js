@@ -6,6 +6,12 @@ import WeatherConditionsItem from "./WeatherConditionsItem";
 import WeekWeather from "./WeekWeather";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
+import drop from "../static/images/icons/drop.png";
+import sunrise from "../static/images/icons/sunrise.png";
+import sunset from "../static/images/icons/sunset.png";
+import wind from "../static/images/icons/wind.png";
+import pressure from "../static/images/icons/pressure.png";
+import thermometer from "../static/images/icons/thermometer-high.png";
 
 const WrapperStyle = styled.div`
   width: 80%;
@@ -18,9 +24,10 @@ const WrapperStyle = styled.div`
     overflow: hidden;
   }
   .weather-conditions {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+display: grid  ;
+grid-template-columns: 1fr 1fr ;
+gap: 20px;
+    /* margin: 10px 10px; */
     margin-top: var(--div-top-bottom-margin);
     margin-bottom: var(--div-top-bottom-margin);
     margin-left: var(--div-left-right-margin);
@@ -42,6 +49,29 @@ const Wrapper = () => {
   const { weatherData } = useSelector((state) => state);
   if (!weatherData.timezone) return null;
 
+  let windDir = "";
+  if (weatherData.current.wind_deg >= 0 && weatherData.current.wind_deg <= 90) {
+    windDir = "ene";
+  }
+  if (
+    weatherData.current.wind_deg > 90 &&
+    weatherData.current.wind_deg <= 180
+  ) {
+    windDir = "ese";
+  }
+  if (
+    weatherData.current.wind_deg > 180 &&
+    weatherData.current.wind_deg <= 240
+  ) {
+    windDir = "wsw";
+  }
+  if (
+    weatherData.current.wind_deg > 240 &&
+    weatherData.current.wind_deg <= 360
+  ) {
+    windDir = "wnw";
+  }
+
   return (
     <WrapperStyle>
       <div className="current-location">
@@ -55,6 +85,7 @@ const Wrapper = () => {
               new Date(weatherData.current.sunrise * 1000),
               "hh:mmaa"
             )}
+            imgName={sunrise}
           />
           <WeatherConditionsItem
             header={"Sunset"}
@@ -62,22 +93,33 @@ const Wrapper = () => {
               new Date(weatherData.current.sunset * 1000),
               "hh:mmaa"
             )}
+            imgName={sunset}
           />
           <WeatherConditionsItem
             header={"Humidity"}
-            description={weatherData.current.humidity}
+            description={weatherData.current.humidity + "%"}
+            imgName={drop}
           />
           <WeatherConditionsItem
             header={"Pressure"}
             description={weatherData.current.pressure}
+            imgName={pressure}
           />
           <WeatherConditionsItem
             header={"Feels Like"}
-            description={weatherData.current.feels_like}
+            description={Math.floor(weatherData.current.feels_like) + "\u2109"}
+            imgName={thermometer}
           />
           <WeatherConditionsItem
             header={"Wind"}
-            description={weatherData.current.wind}
+            description={
+              windDir +
+              " " +
+              Math.floor(weatherData.current.wind_speed) +
+              " " +
+              "mph"
+            }
+            imgName={wind}
           />
         </div>
       </div>

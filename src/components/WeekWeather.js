@@ -4,10 +4,14 @@ import { useSelector } from "react-redux";
 import { format } from "date-fns";
 
 const WeekWeatherStyle = styled.div`
-  border: solid 0.5px black;
   margin-bottom: var(--div-top-bottom-margin);
   margin-left: var(--div-left-right-margin);
   margin-right: var(--div-left-right-margin);
+  background: var(--card-gradient);
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  
 `;
 
 const WeekWeather = () => {

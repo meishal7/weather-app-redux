@@ -10,8 +10,11 @@ import {
 import { BsDroplet, BsPercent } from "react-icons/bs";
 
 const WeekWeatherItemStyle = styled.div`
+  align-items: center;
+  font-size: 1.2rem;
+
   padding: 6px 6px;
-  border-bottom: 0.5px solid red;
+  border-bottom: 1px solid var(--border-color);
   display: grid;
   grid-template-columns: 150px 100px 1fr 1fr 1fr;
   grid-template-areas: "day condition min max humidity";

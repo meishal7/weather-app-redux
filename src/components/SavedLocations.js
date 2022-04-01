@@ -3,9 +3,9 @@ import SavedLocationWeatherItem from "./SavedLocationWeatherItem";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import SearchLocationInput from "./SearchLocationInput";
+import { useSelector } from "react-redux";
 
 const SavedLocationsStyle = styled.div`
-  border: solid 0.5px black;
   max-width: inherit;
   overflow-x: auto;
   /* .input-area {
@@ -22,23 +22,22 @@ const SavedLocationsStyle = styled.div`
   } */
 `;
 
-const Header = () => {
-  const [city, setCity] = useState("");
+const SavedLocations = () => {
+  const { savedLocations } = useSelector((state) => state);
 
-  const cityHandler = (event) => {
-    setCity(event.target.value);
-  };
-
-  const getWeatherHandler = (event) => {
-    event.preventDefault();
-  };
+  if (!savedLocations) return null;
 
   return (
     <SavedLocationsStyle>
       <div className="locations">
-        <SavedLocationWeatherItem />
-        <SavedLocationWeatherItem />
-        <SavedLocationWeatherItem />
+        {savedLocations.map((el, i) => (
+          <SavedLocationWeatherItem
+            key={i}
+            city={el.city}
+            temp={el.temp}
+            time={el.time}
+          />
+        ))}
       </div>
       <div className="search">
         <SearchLocationInput />
@@ -62,4 +61,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default SavedLocations;

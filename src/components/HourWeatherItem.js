@@ -5,6 +5,14 @@ const HourWeatherItemStyle = styled.div`
   scroll-snap-align: start;
   flex: 1 0 50px;
   text-align: center;
+  p {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(0, 0, 0, 0.45);
+  }
 `;
 
 const HourWeatherItem = ({ time, temp }) => {

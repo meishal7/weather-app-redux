@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { format } from "date-fns";
 
 const initialState = {
   weatherData: {},
@@ -33,8 +34,19 @@ const reducer = (state = initialState, action) => {
       action.payload.timezone.indexOf("/") + 1,
       action.payload.timezone.length
     );
+
+    if (state.savedLocations.some((el) => el.city === cityName)) {
+      return {
+        weatherData: weatherData,
+        savedLocations: state.savedLocations,
+        userLocationData: state.userLocationData,
+      };
+    }
+    let time = format(new Date(weatherData.current.dt * 1000), "hh:mmaa");
     const newLocationData = {
       city: cityName,
+      temp: Math.floor(action.payload.current.temp),
+      time: time,
       lat: action.payload.lat,
       lon: action.payload.lon,
     };

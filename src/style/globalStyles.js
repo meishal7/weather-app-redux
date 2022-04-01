@@ -2,6 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 :root {
+  --border-color: #ff9bad;
+  --text-color: #00000073;
   --color-primary: #a976f7; 
   --div-top-bottom-margin:20px;
   --div-left-right-margin:20px;
@@ -18,6 +20,12 @@ export const GlobalStyle = createGlobalStyle`
   --text-color-dark :#151717;
   --border-card: 1px solid var(--text-color-dark); 
   --shadow: 6px 8px 15px -6px rgba(0,0,0,0.36);
+  --card-gradient: linear-gradient(
+    266.69deg,
+    rgba(206, 134, 252, 0.25) 23.78%,
+    rgba(255, 134, 140, 0.25) 78.77%
+  );
+  --box-shadow: 0px 4px 6px 4px #0000000c;
 
 
 
@@ -30,8 +38,11 @@ box-sizing: inherit;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  color: var(--text-color-dark);
+  //font-family: 'Roboto', sans-serif;
+ // color: var(--text-color-dark);
+  
+  color: var(--text-color);
+  font-family: "Rubik", sans-serif;
   
   
 }
