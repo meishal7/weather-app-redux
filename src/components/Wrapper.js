@@ -6,16 +6,15 @@ import WeatherConditionsItem from "./WeatherConditionsItem";
 import WeekWeather from "./WeekWeather";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
-import drop from "../static/images/icons/drop.png";
-import sunrise from "../static/images/icons/sunrise.png";
-import sunset from "../static/images/icons/sunset.png";
-import wind from "../static/images/icons/wind.png";
-import pressure from "../static/images/icons/pressure.png";
-import thermometer from "../static/images/icons/thermometer-high.png";
+import drop from "../images/icons/drop.png";
+import sunrise from "../images/icons/sunrise.png";
+import sunset from "../images/icons/sunset.png";
+import wind from "../images/icons/wind.png";
+import pressure from "../images/icons/pressure.png";
+import thermometer from "../images/icons/thermometer-high.png";
 
 const WrapperStyle = styled.div`
   width: 80%;
-
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -24,10 +23,9 @@ const WrapperStyle = styled.div`
     overflow: hidden;
   }
   .weather-conditions {
-display: grid  ;
-grid-template-columns: 1fr 1fr ;
-gap: 20px;
-    /* margin: 10px 10px; */
+    display: grid  ;
+    grid-template-columns: 1fr 1fr ;
+    gap: 20px;
     margin-top: var(--div-top-bottom-margin);
     margin-bottom: var(--div-top-bottom-margin);
     margin-left: var(--div-left-right-margin);

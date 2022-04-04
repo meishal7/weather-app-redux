@@ -1,18 +1,14 @@
 import styled from "styled-components";
-import { useSelector } from "react-redux";
-import { format } from "date-fns";
-import {
-  WiDayCloudy,
-  WiThermometerExterior,
-  WiThermometer,
-  WiFahrenheit,
-} from "react-icons/wi";
-import { BsDroplet, BsPercent } from "react-icons/bs";
+
 
 const WeekWeatherItemStyle = styled.div`
+  .general-p {
+    align-self: center;
+    padding-left: 10px;
+  }
   align-items: center;
   font-size: 1.2rem;
-
+  justify-items: center;
   padding: 6px 6px;
   border-bottom: 1px solid var(--border-color);
   display: grid;
@@ -23,12 +19,14 @@ const WeekWeatherItemStyle = styled.div`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  align-items: center;
+  
   div {
     display: flex;
   }
   .day {
     grid-area: day;
+    justify-self: start;
+    padding-left: 10px;
   }
   .condition {
     grid-area: condition;
@@ -43,31 +41,51 @@ const WeekWeatherItemStyle = styled.div`
   .humidity {
     grid-area: humidity;
   }
+  .icon {
+    align-items: center;
+    margin: 0.5rem 0;
+    height: 36px;
+    width: 36px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("${({ dt, conditions }) =>
+      `/images/icons/${dt}-${conditions}.png`}");
+  }
+ 
+  .thermometer-high,  .thermometer-low, .drop{
+    height: 50px;
+    width: 36px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+  }
 `;
 
-const WeekWeatherItem = ({ day, max, min, humidity }) => {
+const WeekWeatherItem = ({ day, max, min, humidity, dayTime, condition }) => {
   return (
-    <WeekWeatherItemStyle>
+    <WeekWeatherItemStyle dt={dayTime} conditions={condition}>
       <p className="day">{day}</p>
-      <WiDayCloudy color="red" size="2em" className="condition" />
+      <div className="icon" alt="Weather condition icon"></div>
       <div className="min">
-        <WiThermometerExterior color="red" size="2em" />
-        <p>
+        <img src="/images/icons/thermometer-low.png" alt="Thermometer icon" className="thermometer-low"></img>
+        <p className="general-p">
           {min}
           <span>&#8457;</span>
         </p>
       </div>
       <div className="max">
-        <WiThermometer color="red" size="2em" />
-        <p className="max">
+      <img src="/images/icons/thermometer-high.png" alt="Thermometer icon" className="thermometer-high"></img>
+        <p className="general-p">
           {max}
           <span>&#8457;</span>
         </p>
       </div>
       <div className="humidity">
-        <BsDroplet color="red" size="2em" />
-        <p className="humidity">
-          {humidity}%{/* <BsPercent color="red" size="2em"></BsPercent> */}
+      <img src="/images/icons/drop.png" alt="Drop icon" className="drop"></img>
+        <p className="general-p">
+          {humidity}%
         </p>
       </div>
     </WeekWeatherItemStyle>

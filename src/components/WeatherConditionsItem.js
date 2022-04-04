@@ -39,7 +39,7 @@ const WeatherConditionsItem = ({ header, description, imgName }) => {
   return (
     <WeatherConditionsItemStyle>
       <div className="condition-img">
-        <img className="icon" src={imgName} />
+        <img className="icon" alt="Weather condition icon" src={imgName} />
       </div>
       <div className="condition-info">
         <p>{header}</p>

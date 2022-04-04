@@ -49,6 +49,8 @@ const reducer = (state = initialState, action) => {
       time: time,
       lat: action.payload.lat,
       lon: action.payload.lon,
+      condition: action.payload.current.weather[0].main,
+      timeZone: action.payload.timezone
     };
 
     const savedLocations = [...state.savedLocations, newLocationData];

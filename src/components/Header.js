@@ -1,11 +1,9 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { useState } from "react";
-import { GlobalStyle } from "../style/globalStyles";
-import dayClear from "../static/images/backgrounds/day-Clear.png";
+
 
 const HeaderStyle = styled.div`
-  background-image: url(${dayClear});
+  background-image : url('${({time, conditions})=>  `/images/backgrounds/${time}-${conditions}.png`}');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0% 25%;
@@ -13,13 +11,8 @@ const HeaderStyle = styled.div`
   border-bottom-left-radius: 81% 15%;
   border-bottom-right-radius: 81% 15%;
   box-shadow: inset 0px -6px 4px rgba(0, 0, 0, 0.25);
-
-  /* display: flex;
-  flex-direction: column; */
-  /* align-items: center; */
   margin: var(--div-top-bottom-margin) var(--div-top-bottom-margin);
-  /* min-height: 200px; */
-
+  
   .header {
     text-align: center;
     font-style: normal;
@@ -98,15 +91,10 @@ const Header = () => {
     ? (currentWeatherDayTime = "day")
     : (currentWeatherDayTime = "night");
 
-  // currWeatherDiv.style.backgroundImage = `url('/images/backgrounds/${currentWeatherDayTime}-${weatherData.current.weather[0].main}.png')`;
-
   return (
     <HeaderStyle
-      style={
-        {
-          // backgroundImage: `url('../static/images/backgrounds/${currentWeatherDayTime}-${weatherData.current.weather[0].main}.png')`,
-        }
-      }
+     time = {currentWeatherDayTime}
+     conditions = {weatherData.current.weather[0].main}
     >
       <h3 className="header">{city}</h3>
       <p className="curr-temp">

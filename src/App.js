@@ -1,18 +1,14 @@
-/**
- * GENERAL PROGRAM DESCRIPTION
- *
- * Once App.js is rendered, app makes a call to API to get user location data.
- * If faled to recieve user locataion data -> call to Weather API with default values,
- * otherwise use recieved user location data.
- *
- *
- */
+
 import { Fragment, useEffect, useState } from "react";
 import Wrapper from "./components/Wrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserLocation } from "./modules/getUserLocation";
 import { GlobalStyle } from "./style/globalStyles";
 import "./style/normalize.css";
+import styled from "styled-components";
+
+
+
 
 // import initMap from "../src/modules/getWeatherGoogleMaps";
 

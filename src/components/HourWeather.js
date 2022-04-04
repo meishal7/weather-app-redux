@@ -17,13 +17,9 @@ const HourWeatherStyle = styled.div`
   justify-content: space-between;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  /* padding-bottom: 15px;
-  margin: 0;
-  margin-bottom: -15px; */
   scrollbar-width: none;
   padding-bottom: 15px;
   padding-top: 15px;
-
   background: var(--card-gradient);
   border-radius: 6px;
   padding: 1.5rem;
@@ -35,12 +31,37 @@ const HourWeather = () => {
   const { weatherData } = useSelector((state) => state);
   if (!weatherData.timezone) return null;
 
+  // Function for converting time to displayed location timezone time
+  const convertTZ = (date, tzString) => {
+    return new Date(
+      (typeof date === "string" ? new Date(date) : date).toLocaleString(
+        "en-US",
+        { timeZone: tzString }
+      )
+    );
+  };
+
+  // Determine if it's day or night for correct background img
+  const convertedDate = convertTZ(new Date(), weatherData.timezone);
+
+  console.log(convertedDate.getHours());
+
+  let currentWeatherDayTime = "";
+
+  convertedDate.getHours() >= 6 && convertedDate.getHours() < 18
+    ? (currentWeatherDayTime = "day")
+    : (currentWeatherDayTime = "night");
+
+
+  
   return (
+    
     <HourWeatherStyle>
       {weatherData.hourly.map((el, i) => (
-        // var convertedTime = format(new Date(el.dt), "hh");
         <HourWeatherItem
           key={i}
+          condition={el.weather[0].main}
+          dayTime={currentWeatherDayTime}
           time={format(new Date(el.dt * 1000), "h:aa")}
           temp={Math.floor(el.temp)}
         />

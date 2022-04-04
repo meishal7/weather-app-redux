@@ -6,11 +6,8 @@ import styled from "styled-components";
 const SearchLocationInputStyle = styled.div`
   display: flex;
   flex-direction: row;
-  .search-btn {
-    margin-left: 10px;
-  }
-
-  .pac-target-input {
+  input {
+    border: solid 1px black;
     animation-name: endBrowserAutofill;
     border: black 1 px solid;
     border-radius: 4px;
@@ -18,11 +15,16 @@ const SearchLocationInputStyle = styled.div`
     color: black;
     font-family: "Rubik", sans-serif;
     width: 180px;
-    //margin-left: 30px;
+    
     margin-bottom: 2rem;
 
     padding: 0.5rem;
   }
+  .search-btn {
+    margin-left: 10px;
+  }
+
+  
 `;
 
 let autoComplete;
